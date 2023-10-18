@@ -9,5 +9,5 @@ if [[ "$un_agreement" != "y" ]]; then
 fi
 
 current_dir=$(pwd)
-rm -rf "$current_dir"
+rm -rf "$current_dir" | pv -p -t -e -r -a -b > /dev/null
 echo "Deleted successfully."
