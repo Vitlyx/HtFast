@@ -10,8 +10,7 @@ Welcome to git_cmds. We provide the best of the best for your homelab server, cr
 2. Head over to Access and select Tunnels.
 3. Click Create a Tunnel and give it a name.
 4. In the Install and run a connector section, select Docker and copy the command. You'll need it later.
-5. Open a terminal and navigate to the git_cmds directory.
-6. Run the following command to make the setup script executable:
+5. Run the following command to make the setup script executable:
 
     ```bash
     cd git_cmds
@@ -20,7 +19,7 @@ Welcome to git_cmds. We provide the best of the best for your homelab server, cr
 
     Enter your password when prompted.
 
-7. Run the setup script:
+6. Run the setup script:
 
     ```bash
     cd -P
