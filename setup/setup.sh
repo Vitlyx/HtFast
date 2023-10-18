@@ -29,8 +29,9 @@ if [[ "$rules_agreement" != "y" ]]; then
   exit 1
 fi
 
-echo $pass | sudo -s apt-get install gnome-terminal pv | pv -p -t -e -r -a -b > /dev/null
-echo $pass | sudo -s apt update | pv -p -t -e -r -a -b > /dev/null
+echo $pass | sudo -s apt install pv -y
+echo $pass | sudo -s apt install gnome-terminal -y | pv -p -t -e -r -a -b > /dev/null
+echo $pass | sudo -s apt update -y | pv -p -t -e -r -a -b > /dev/null
 
 echo $pass | sudo -s chmod +x run.sh
 echo $pass | sudo -s chmod +x config.sh
