@@ -34,3 +34,25 @@ To use the system, go back to your terminal and run the following command:
 
 ```bash
 ./git_cmds/run.sh {git_repo} {setup_cmd}
+```
+
+## Update
+
+To update your password (if ever changed), enter the following command:
+
+```bash
+cd git_cmds
+nano config.sh
+```
+
+From here, edit your password and/or docker token.
+
+## Notice
+
+1. Any of your info will **NOT** be shared with anyone.
+2. Be warned if anything is edited, it is **NOT** our fault if broken, please reinstall it again.
+3. If anything, please take a look into Cloudflares Terms of Service and Use.
+
+## Thanks
+
+Thank you for using our services, we hope you enjoy them, but be on the lookout for more updates for this repository, as some updates might be crucial.
