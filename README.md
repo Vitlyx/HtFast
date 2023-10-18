@@ -23,7 +23,7 @@ Welcome to git_cmds. We provide the best of the best for your homelab server, cr
 
     ```bash
     cd -P
-    ./git_cmds/setup.sh
+    ./git_cmds/setup.sh {Your Password} {Cloudflare Token}
     ```
 
 Once the setup script has finished running, you're all set!
