@@ -21,7 +21,6 @@ Welcome to git_cmds. We provide the best of the best for your homelab server, cr
 6. Run the setup script:
 
     ```bash
-    cd -P
     ./git_cmds/setup/setup.sh {Your Password} {Cloudflare Token}
     ```
 
