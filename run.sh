@@ -6,6 +6,8 @@
 # Install docker
 # sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
+# !! Make sure git is installed
+
 source config.sh
 
 git_repo=$1
@@ -42,11 +44,3 @@ python3 -m venv env
 source env/bin/activate
 pip install -r requirements.txt | pv -p -t -e -r -a -b > /dev/null
 $runCmd
-
-# !! Make sure git is installed
-
-# !! Enter this cmd OUTSIDE OF FILE to give perms to give perms
-# sudo chmod +x git_cmds/{file-name}
-
-# !! Enter this command OUTSIDE OF FILE to run this file
-# ./git_cmds/{file-name}

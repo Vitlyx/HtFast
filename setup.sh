@@ -2,6 +2,11 @@
 pass=$1
 cloudflare_token=$2
 
+if [[ ! $(command -v docker) ]]; then
+  echo "Docker is not installed."
+  echo "Please install docker to proceed."
+fi
+
 echo $pass | sudo -s echo ""
 if [[ $? -ne 0 ]]; then
   echo "Error: Incorrect password."
