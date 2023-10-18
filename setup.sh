@@ -39,3 +39,5 @@ echo $pass | sudo -s chmod +x uninstall.sh
 
 echo "pass=$pass" > config.sh
 echo "cloudflare_token=$cloudflare_token" >> config.sh
+
+echo "Setup Complete!"
