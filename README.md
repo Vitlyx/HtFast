@@ -14,6 +14,7 @@ Welcome to git_cmds. We provide the best of the best for your homelab server, cr
 6. Run the following command to make the setup script executable:
 
     ```bash
+    cd git_cmds
     sudo chmod +x setup.sh
     ```
 
@@ -22,7 +23,8 @@ Welcome to git_cmds. We provide the best of the best for your homelab server, cr
 7. Run the setup script:
 
     ```bash
-    ./setup.sh
+    cd -P
+    ./git_cmds/setup.sh
     ```
 
 Once the setup script has finished running, you're all set!
