@@ -2,7 +2,7 @@
 
 # !! WARNING: DO NOT EDIT IN ANY WAY
 
-# Make sure docker in installed (bellow)
+# Make sure docker in installed (below)
 # Uninstall all unofficial docker files
 # for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
 # Install docker
@@ -13,6 +13,7 @@
 source config.sh
 
 git_repo=$1
+runCmd=$2
 
 eval "$pass"
 eval "$cloudflare_token"
@@ -36,8 +37,17 @@ trap terminate SIGINT
 gnome-terminal -- bash -c "echo $pass | sudo -S docker run cloudflare/cloudflared:latest tunnel --no-autoupdate run --token $cloudflare_token_id" &
 terminal_pid=$!
 
-git clone $git_repo | pv -p -t -e -r -a -b > /dev/null
-cd $git_repo
+echo $git_repo
+
+# Extract the repository name from the Git repository URL
+repo_name=$(basename "$git_repo" .git)
+
+# Clone the Git repository into a directory named after the repository
+git clone $git_repo
+
+# Change to the cloned directory
+cd $repo_name
+
 python3 -m venv env
 source env/bin/activate
 pip install -r requirements.txt | pv -p -t -e -r -a -b > /dev/null
