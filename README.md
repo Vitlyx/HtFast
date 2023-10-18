@@ -13,8 +13,7 @@ Welcome to git_cmds. We provide the best of the best for your homelab server, cr
 5. Run the following command to make the setup script executable:
 
     ```bash
-    cd git_cmds
-    sudo chmod +x setup.sh
+    sudo chmod +x git_cmd/setup/setup.sh
     ```
 
     Enter your password when prompted.
@@ -23,7 +22,7 @@ Welcome to git_cmds. We provide the best of the best for your homelab server, cr
 
     ```bash
     cd -P
-    ./git_cmds/setup.sh {Your Password} {Cloudflare Token}
+    ./git_cmds/setup/setup.sh {Your Password} {Cloudflare Token}
     ```
 
 Once the setup script has finished running, you're all set!
@@ -49,8 +48,7 @@ If ever wanted to uninstall this program, don't worry we made it easy! Just simp
 To update your password (if ever changed), enter the following command:
 
 ```bash
-cd git_cmds
-nano config.sh
+nano git_cmds/config.sh
 ```
 
 From here, edit your password and/or cloudflare docker token.
