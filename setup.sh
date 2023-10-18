@@ -41,7 +41,8 @@ echo $pass | sudo -s chmod +x "$SCRIPT_DIR/run.sh"
 echo $pass | sudo -s chmod +x "$SCRIPT_DIR/config.sh"
 echo $pass | sudo -s chmod +x "$SCRIPT_DIR/uninstall.sh"
 
-echo "pass=$pass" > "$SCRIPT_DIR/config.sh"
-echo "cloudflare_token=$cloudflare_token" >> "$SCRIPT_DIR/config.sh"
+# Use sudo to write to config.sh
+echo "pass=$pass" | sudo tee "$SCRIPT_DIR/config.sh" > /dev/null
+echo "cloudflare_token=$cloudflare_token" | sudo tee -a "$SCRIPT_DIR/config.sh" > /dev/null
 
 echo "Setup Complete!"
