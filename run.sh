@@ -13,7 +13,6 @@
 source config.sh
 
 git_repo=$1
-runCmd=$2
 
 eval "$pass"
 eval "$cloudflare_token"
@@ -42,4 +41,4 @@ cd $git_repo
 python3 -m venv env
 source env/bin/activate
 pip install -r requirements.txt | pv -p -t -e -r -a -b > /dev/null
-$runCmd
+uvicorn main:app --host 0.0.0.0 --port 8000

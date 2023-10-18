@@ -10,5 +10,5 @@ if [[ "$un_agreement" != "y" ]]; then
   exit 1
 fi
 current_dir=$(pwd)
-echo $pass | sudo -s rm -rf "$current_dir" -y | pv -p -t -e -r -a -b > /dev/null
+echo $pass | sudo -s rm -r "$current_dir" -y | pv -p -t -e -r -a -b > /dev/null
 echo "Deleted successfully."

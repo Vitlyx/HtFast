@@ -5,7 +5,7 @@
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 pass=$1
-cloudflare_token=$2
+cloudflare_token="$2"
 
 if [[ ! $(command -v docker) ]]; then
   echo "Docker is not installed."
