@@ -16,7 +16,7 @@ if [[ $? -ne 0 ]]; then
   exit 1
 fi
 
-if [[ ! "$cloudflare_token" =~ ^docker\ run\ cloudflare/cloudflared:latest\ tunnel\ --no-autoupdate\ run\ --token ]]; then
+if [[ ! "$cloudflare_token" =~ "docker run cloudflare/cloudflared:latest tunnel" ]]; then
   echo "Error: Invalid Cloudflare token."
   exit 1
 fi
