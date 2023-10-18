@@ -16,11 +16,6 @@ if [[ $? -ne 0 ]]; then
   exit 1
 fi
 
-if [[ ! "$cloudflare_token" =~ "docker run cloudflare/cloudflared:latest tunnel" ]]; then
-  echo "Error: Invalid Cloudflare token."
-  exit 1
-fi
-
 echo "Do you agree to the Cloudflare Terms of Service? (y/n)"
 read -r cld_agreement
 if [[ "$cld_agreement" != "y" ]]; then
