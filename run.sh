@@ -10,7 +10,10 @@
 
 # !! Make sure git is installed
 
-source config.sh
+# Check if the config.sh file exists
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+source SCRIPT_DIR/config.sh
 
 git_repo=$1
 runCmd=$2
@@ -39,13 +42,9 @@ terminal_pid=$!
 
 echo $git_repo
 
-# Extract the repository name from the Git repository URL
 repo_name=$(basename "$git_repo" .git)
 
-# Clone the Git repository into a directory named after the repository
 git clone $git_repo
-
-# Change to the cloned directory
 cd $repo_name
 
 python3 -m venv env
