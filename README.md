@@ -45,7 +45,7 @@ cd git_cmds
 nano config.sh
 ```
 
-From here, edit your password and/or docker token.
+From here, edit your password and/or cloudflare docker token.
 
 ## Notice
 
