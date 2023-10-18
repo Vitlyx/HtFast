@@ -36,6 +36,14 @@ To use the system, go back to your terminal and run the following command:
 ./git_cmds/run.sh {git_repo} {setup_cmd}
 ```
 
+## Uninstall
+
+If ever wanted to uninstall this program, don't worry we made it easy! Just simply run this command:
+
+```bash
+./git_cmds/uninstall.sh
+```
+
 ## Update
 
 To update your password (if ever changed), enter the following command:
