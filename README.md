@@ -21,8 +21,16 @@ Welcome to git_cmds. We provide the best of the best for your homelab server, cr
 6. Run the setup script:
 
     ```bash
-    ./git_cmds/setup.sh {Your Password} {Cloudflare Token}
+    ./git_cmds/setup.sh
     ```
+
+7. In order to get your script running, head over to file named `run.sh`, at the very end, edit your start script.
+
+     ```bash
+    sudo nano git_cmds/run.sh
+    ```
+
+    If your simply just trying to host a simple html site with API, we recommend you to download our `HtFast` file and use its template (recommended to fork it and edit the file using githubs easy-to-use code editor.)
 
 Once the setup script has finished running, you're all set!
 
@@ -31,7 +39,7 @@ Once the setup script has finished running, you're all set!
 To use the system, go back to your terminal and run the following command:
 
 ```bash
-./git_cmds/run.sh {git_repo} {setup_cmd}
+./git_cmds/run.sh {git_repo}
 ```
 
 ## Uninstall
