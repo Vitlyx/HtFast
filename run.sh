@@ -39,7 +39,6 @@ echo "Opening a Docker container..."
 echo $pass | docker run -d --name cloudfserver cloudflare/cloudflared:latest tunnel --no-autoupdate run --token $cloudflare_token_id
 sleep 10
 
-echo $git_repo
 repo_name=$(basename "$git_repo" .git)
 git clone $git_repo
 cd $repo_name
@@ -50,6 +49,8 @@ cd $repo_name
 
 #If wanted to use this default code...
 # Download the `HtFast` repo and setup this program!
+echo $git_repo
+echo $repo_name
 python3 -m venv env
 source env/bin/activate
 pip install -r requirements.txt | pv -p -t -e -r -a -b > /dev/null
