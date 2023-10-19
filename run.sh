@@ -2,7 +2,7 @@
 
 # !! WARNING: DO NOT EDIT IN ANY WAY
 
-# Make sure docker in installed (below)
+# Make sure docker is installed (below)
 # Uninstall all unofficial docker files
 # for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
 # Install docker
@@ -10,8 +10,7 @@
 
 # !! Make sure git is installed
 
-# Check if the config.sh file exists
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 source $SCRIPT_DIR/config.sh
 
@@ -24,7 +23,7 @@ eval "$cloudflare_token"
 # Get the Cloudflare token ID
 cloudflare_token_id=$(echo "$cloudflare_token" | cut -d '-' -f 6)
 
-echo $pass | sudo -s echo ""
+echo $pass | sudo -S echo ""
 if [[ $? -ne 0 ]]; then
   echo "Error: Incorrect password."
   exit 1
@@ -32,12 +31,13 @@ fi
 
 terminate() {
   echo "Ctrl+C pressed. Terminating the script and the terminal..."
-  
+  docker remove cloudfserver
   exit 1
 }
 trap terminate SIGINT
 
-docker run -d --name cloudfserver --restart unless-stopped cloudflare/cloudflared:latest tunnel --no-autoupdate run --token $cloudflare_token_id
+docker_command="docker run -d --name cloudfserver --restart unless-stopped cloudflare/cloudflared:latest tunnel --no-autoupdate run --token $cloudflare_token_id"
+eval "$docker_command"
 
 echo $git_repo
 
