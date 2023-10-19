@@ -1,14 +1,11 @@
 #!/bin/bash
 
-# !! WARNING: DO NOT EDIT IN ANY WAY
-
-# Make sure docker in installed (below)
-# Uninstall all unofficial docker files
-# for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
-# Install docker
-# sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-
-# !! Make sure git is installed
+#  __      __  _____   _______   _       __     __
+#  \ \    / / |_   _| |__   __| | |      \ \   / /
+#   \ \  / /    | |      | |    | |       \ \_/ / 
+#    \ \/ /     | |      | |    | |        \   /  
+#     \  /     _| |_     | |    | |____     | |   
+#      \/     |_____|    |_|    |______|    |_|                                                   
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
@@ -32,19 +29,27 @@ fi
 terminate() {
   echo "Ctrl+C pressed. Terminating the script and the terminal..."
   docker remove cloudfserver
+  sleep 5
+  echo "Docker container removed. Exiting from script..."
   exit 1
 }
 trap terminate SIGINT
 
+echo "Opening a Docker container..."
 echo $pass | docker run -d --name cloudfserver cloudflare/cloudflared:latest tunnel --no-autoupdate run --token $cloudflare_token_id
+sleep 10
 
 echo $git_repo
-
 repo_name=$(basename "$git_repo" .git)
-
 git clone $git_repo
 cd $repo_name
 
+
+#⬇ Run Your Startup Code Bellow ⬇#
+# Default Code #
+
+#If wanted to use this default code...
+# Download the `HtFast` repo and setup this program!
 python3 -m venv env
 source env/bin/activate
 pip install -r requirements.txt | pv -p -t -e -r -a -b > /dev/null
