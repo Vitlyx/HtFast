@@ -15,7 +15,7 @@ git_repo=$1
 runCmd=$2
 
 eval "$pass"
-eval "$cloudflare_token"
+# eval "$cloudflare_token"
 
 # Get the Cloudflare token ID
 cloudflare_token_id=$(echo "$cloudflare_token" | cut -d '-' -f 6)
