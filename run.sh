@@ -36,7 +36,7 @@ terminate() {
 }
 trap terminate SIGINT
 
-echo $pass | docker -S run -d --name cloudfserver --restart unless-stopped cloudflare/cloudflared:latest tunnel --no-autoupdate run --token $cloudflare_token_id
+echo $pass | docker run -d --name cloudfserver cloudflare/cloudflared:latest tunnel --no-autoupdate run --token $cloudflare_token_id
 
 echo $git_repo
 
