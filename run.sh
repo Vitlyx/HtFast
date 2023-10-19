@@ -38,7 +38,7 @@ terminate() {
 }
 trap terminate SIGINT
 
-gnome-terminal -- /bin/bash -c "echo $pass | sudo -S docker run cloudflare/cloudflared:latest tunnel --no-autoupdate run --token $cloudflare_token_id" &
+gnome-terminal -- bash -c "echo $pass | sudo -S docker run cloudflare/cloudflared:latest tunnel --no-autoupdate run --token $cloudflare_token_id" &
 terminal_pid=$!
 
 echo $git_repo
