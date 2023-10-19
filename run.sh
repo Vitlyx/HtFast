@@ -32,13 +32,12 @@ fi
 
 terminate() {
   echo "Ctrl+C pressed. Terminating the script and the terminal..."
-  kill "$terminal_pid"
+  
   exit 1
 }
 trap terminate SIGINT
 
-gnome-terminal -- bash -c "echo $pass | sudo -S docker run -d --restart unless-stopped cloudflare/cloudflared:latest tunnel --no-autoupdate run --token $cloudflare_token_id" &
-terminal_pid=$!
+docker run -d --name cloudfserver --restart unless-stopped cloudflare/cloudflared:latest tunnel --no-autoupdate run --token $cloudflare_token_id
 
 echo $git_repo
 
