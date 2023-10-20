@@ -53,7 +53,7 @@ fi
 # Default Code #
 
 # `HtFast` is automatically integrated. (default)
-sudo python3 -m venv env
-source env/bin/activate
+python3 -m venv .venv
+source venv/bin/activate
 pip install -r requirements.txt | pv -p -t -e -r -a -b > /dev/null
 uvicorn main:app --host 0.0.0.0 --port 8000
