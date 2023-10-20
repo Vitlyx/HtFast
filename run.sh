@@ -37,7 +37,9 @@ trap terminate SIGINT
 
 echo "Opening a Docker container..."
 echo $pass | docker run -d --name cloudfserver cloudflare/cloudflared:latest tunnel --no-autoupdate run --token $cloudflare_token_id
-sleep 10
+until docker inspect cloudfserver --format '{{.State.Running}}' | grep -q 'true'; do
+  sleep 1
+done
 
 if [[ "$git_repo" == "HtFast" ]]; then
   echo "Starting 'HtFast.'"
