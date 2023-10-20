@@ -32,7 +32,7 @@ echo $pass | sudo -S apt install pv -y
 echo $pass | sudo -S apt update -y | pv -p -t -e -r -a -b > /dev/null
 echo $pass | sudo -S apt install python3 -y | pv -p -t -e -r -a -b > /dev/null
 echo $pass | sudo -S apt install python3-full | pv -p -t -e -r -a -b > /dev/null
-echo $pass | sudo -S pipx install xyz | pv -p -t -e -r -a -b > /dev/null
+echo $pass | sudo -S pipx install radian | pv -p -t -e -r -a -b > /dev/null
 echo $pass | sudo -S apt install gnome-terminal -y | pv -p -t -e -r -a -b > /dev/null
 
 echo $pass | sudo -S chmod +x "$SCRIPT_DIR/run.sh"
