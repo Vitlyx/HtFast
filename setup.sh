@@ -37,7 +37,6 @@ echo $pass | sudo -S apt update -y | pv -p -t -e -r -a -b > /dev/null
 
 echo $pass | sudo -S chmod +x "$SCRIPT_DIR/run.sh"
 echo $pass | sudo -S chmod +x "$SCRIPT_DIR/config.sh"
-echo $pass | sudo -S chmod +x "$SCRIPT_DIR/uninstall.sh"
 
 echo "pass=\"$pass\"" | sudo tee "$SCRIPT_DIR/config.sh" > /dev/null
 echo "cloudflare_token=\"$cloudflare_token\"" | sudo tee -a "$SCRIPT_DIR/config.sh" > /dev/null
