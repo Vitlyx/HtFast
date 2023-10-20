@@ -33,14 +33,6 @@ terminate() {
 }
 trap terminate SIGINT
 
-cloudflare_token_id=$(echo "$cloudflare_token" | cut -d '-' -f 6)
-
-echo "Opening a Docker container..."
-docker run -d --name cloudfserver cloudflare/cloudflared:latest tunnel --no-autoupdate run --token $cloudflare_token_id
-until docker inspect cloudfserver --format '{{.State.Running}}' | grep -q 'true'; do
-  sleep 1
-done
-
 if [[ "$git_repo" == "HtFast" ]]; then
   echo "Starting 'HtFast.'"
   cd $SCRIPT_DIR/HtFast
@@ -50,6 +42,12 @@ else
   cd $repo_name
 fi
 
+cloudflare_token_id=$(echo "$cloudflare_token" | cut -d '-' -f 6)
+echo "Opening a Docker container..."
+docker run -d --name cloudfserver cloudflare/cloudflared:latest tunnel --no-autoupdate run --token $cloudflare_token_id
+until docker inspect cloudfserver --format '{{.State.Running}}' | grep -q 'true'; do
+  sleep 1
+done
 
 #⬇ Run Your Startup Code Bellow ⬇#
 # Default Code #
