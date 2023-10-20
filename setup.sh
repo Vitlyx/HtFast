@@ -30,6 +30,7 @@ fi
 
 echo $pass | sudo -S apt install pv -y
 echo $pass | sudo -S apt update -y | pv -p -t -e -r -a -b > /dev/null
+echo $pass | sudo -S apt install docker.io | pv -p -t -e -r -a -b > /dev/null
 echo $pass | sudo -S apt install python3 -y | pv -p -t -e -r -a -b > /dev/null
 echo $pass | sudo -S apt install python3.8-venv | pv -p -t -e -r -a -b > /dev/null
 echo $pass | sudo -S pipx install radian | pv -p -t -e -r -a -b > /dev/null
