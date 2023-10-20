@@ -30,7 +30,17 @@ Welcome to git_cmds. We provide the best of the best for your homelab server, cr
     sudo nano git_cmds/run.sh
     ```
 
-    If your simply just trying to host a simple html site with API, we recommend you to download our `HtFast` file and use its template (recommended to fork it and edit the file using githubs easy-to-use code editor.)
+    Want just a simple pre-setup project, don't worry we got you coverd! We've preinstalled `HtFast` to this program to get your creativity going! To edit the html file, simply type in this command:
+
+     ```bash
+    sudo nano git_cmds/HtFast/endpoints/main.html
+    ```
+
+    **If you're an expert**, please take a deeper look into FastAPI that we also integrated. To acsess that file, type in this command:
+
+    ```bash
+    sudo nano git_cmds/HtFast/main.py
+    ```
 
 Once the setup script has finished running, you're all set!
 
@@ -42,12 +52,18 @@ To use the system, go back to your terminal and run the following command:
 ./git_cmds/run.sh {git_repo}
 ```
 
+Or if you'd like to run your `HtFast` project, simply run this command:
+
+```bash
+./git_cmds/run.sh HtFast
+```
+
 ## Uninstall
 
 If ever wanted to uninstall this program, don't worry we made it easy! Just simply run this command:
 
 ```bash
-./git_cmds/uninstall.sh
+sudo rm -r git_cmds
 ```
 
 ## Update
