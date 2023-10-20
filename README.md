@@ -4,13 +4,22 @@ Welcome to HtFast.
 
 ## Setup
 
-1. Go head and download this project.
+1. Lets first install all the packages needed to run the script bellow.
+
+    ```bash
+    sudo apt install python3
+    sudo apt install python3.18-venv
+    sudo apt install apt pipx
+    sudo pipx install radian
+    ```
+
+2. Go head and download this project.
 
     ```bash
     git clone https://github.com/Vitlyx/HtFast.git
     ```
 
-2. Then run the following script to run your `HtFast` project!
+3. Then run the following script to run your `HtFast` project!
 
     ```bash
     python3 -m venv .venv
