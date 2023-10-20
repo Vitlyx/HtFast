@@ -16,8 +16,6 @@ git_repo=$1
 # eval "$pass"
 # eval "$cloudflare_token"
 
-cloudflare_token_id=$(echo "$cloudflare_token" | cut -d '-' -f 6)
-
 echo $pass | sudo -s echo ""
 if [[ $? -ne 0 ]]; then
   echo "Error: Incorrect password."
@@ -35,8 +33,10 @@ terminate() {
 }
 trap terminate SIGINT
 
+cloudflare_token_id=$(echo "$cloudflare_token" | cut -d '-' -f 6)
+
 echo "Opening a Docker container..."
-echo $pass | docker run -d --name cloudfserver cloudflare/cloudflared:latest tunnel --no-autoupdate run --token $cloudflare_token_id
+docker run -d --name cloudfserver cloudflare/cloudflared:latest tunnel --no-autoupdate run --token $cloudflare_token_id
 until docker inspect cloudfserver --format '{{.State.Running}}' | grep -q 'true'; do
   sleep 1
 done
