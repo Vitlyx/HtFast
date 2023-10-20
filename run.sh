@@ -28,6 +28,8 @@ fi
 
 terminate() {
   echo "Ctrl+C pressed. Terminating the script and the terminal..."
+  docker kill cloudfserver
+  sleep 2.5
   docker remove cloudfserver
   sleep 5
   echo "Docker container removed. Exiting from script..."
