@@ -1,86 +1,39 @@
-# Git Cmds
+# HtFast
 
-Welcome to git_cmds. We provide the best of the best for your homelab server, creating projects that you have never seen before. Let's get started!
-
-**P.S. Only supports Linux.**
+Welcome to HtFast.
 
 ## Setup
 
-1. Create a Cloudflare account and a zero trust account.
-2. Head over to Access and select Tunnels.
-3. Click Create a Tunnel and give it a name.
-4. In the Install and run a connector section, select Docker and copy the command. You'll need it later.
-5. Run the following command to make the setup script executable:
+1. Go head and download this project.
 
     ```bash
-    sudo chmod +x git_cmds/setup.sh
+    git clone https://github.com/Vitlyx/HtFast.git
     ```
 
-    Enter your password when prompted.
-
-6. Run the setup script:
+2. Then run the following script to run your `HtFast` project!
 
     ```bash
-    ./git_cmds/setup.sh
+    python3 -m venv .venv
+    source venv/bin/activate
+    pip install -r requirements.txt
+    uvicorn main:app --host {host} --port {port}
     ```
 
-7. In order to get your script running, head over to file named `run.sh`, at the very end, edit your start script.
-
-     ```bash
-    sudo nano git_cmds/run.sh
-    ```
-
-    Want just a simple pre-setup project, don't worry we got you coverd! We've preinstalled `HtFast` to this program to get your creativity going! To edit the html file, simply type in this command:
-
-     ```bash
-    sudo nano git_cmds/HtFast/endpoints/main.html
-    ```
-
-    **If you're an expert**, please take a deeper look into FastAPI that we also integrated. To acsess that file, type in this command:
-
-    ```bash
-    sudo nano git_cmds/HtFast/main.py
-    ```
 
 Once the setup script has finished running, you're all set!
-
-## Usage
-
-To use the system, go back to your terminal and run the following command:
-
-```bash
-./git_cmds/run.sh {git_repo}
-```
-
-Or if you'd like to run your `HtFast` project, simply run this command:
-
-```bash
-./git_cmds/run.sh HtFast
-```
 
 ## Uninstall
 
 If ever wanted to uninstall this program, don't worry we made it easy! Just simply run this command:
 
 ```bash
-sudo rm -r git_cmds
+sudo rm -r HtFast
 ```
-
-## Update
-
-To update your password (if ever changed), enter the following command:
-
-```bash
-nano git_cmds/config.sh
-```
-
-From here, edit your password and/or cloudflare docker token.
 
 ## Notice
 
 1. Any of your info will **NOT** be shared with anyone.
 2. Be warned if anything is edited, it is **NOT** our fault if broken, please reinstall it again.
-3. If anything, please take a look into Cloudflares Terms of Service and Use.
 
 ## Thanks
 
