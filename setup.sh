@@ -38,6 +38,7 @@ echo $pass | sudo -S apt install gnome-terminal -y | pv -p -t -e -r -a -b > /dev
 
 echo $pass | sudo -S chmod +x "$SCRIPT_DIR/run.sh"
 echo $pass | sudo -S chmod +x "$SCRIPT_DIR/config.sh"
+echo $pass | sudo -S mkdir -p ~/.cache/pip
 echo $pass | sudo -S chmod -R u+w ~/.cache/pip
 
 echo "pass=\"$pass\"" | sudo tee "$SCRIPT_DIR/config.sh" > /dev/null
