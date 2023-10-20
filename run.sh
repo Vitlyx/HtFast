@@ -41,7 +41,7 @@ sleep 10
 
 if [[ "$git_repo" == "HtFast" ]]; then
   echo "Starting 'HtFast.'"
-  cd Htfast
+  cd $SCRIPT_DIR/Htfast
 else
   repo_name=$(basename "$git_repo" .git)
   git clone $git_repo
