@@ -14,10 +14,9 @@ source $SCRIPT_DIR/config.sh
 git_repo=$1
 runCmd=$2
 
-eval "$pass"
+# eval "$pass"
 # eval "$cloudflare_token"
 
-# Get the Cloudflare token ID
 cloudflare_token_id=$(echo "$cloudflare_token" | cut -d '-' -f 6)
 
 echo $pass | sudo -s echo ""
@@ -53,7 +52,7 @@ cd $repo_name
 # Download the `HtFast` repo and setup this program!
 echo $git_repo
 echo $repo_name
-python3 -m venv env
-source env/bin/activate
+echo $pass | sudo python3 -S -m venv env
+echo $pass | sudo source -S env/bin/activate
 pip install -r requirements.txt | pv -p -t -e -r -a -b > /dev/null
 uvicorn main:app --host 0.0.0.0 --port 8000
