@@ -12,7 +12,6 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source $SCRIPT_DIR/config.sh
 
 git_repo=$1
-runCmd=$2
 
 # eval "$pass"
 # eval "$cloudflare_token"
@@ -40,18 +39,20 @@ echo "Opening a Docker container..."
 echo $pass | docker run -d --name cloudfserver cloudflare/cloudflared:latest tunnel --no-autoupdate run --token $cloudflare_token_id
 sleep 10
 
-repo_name=$(basename "$git_repo" .git)
-git clone $git_repo
-cd $repo_name
+if [[ "$git_repo" == "HtFast" ]]; then
+  echo "Starting 'HtFast.'"
+  cd Htfast
+else
+  repo_name=$(basename "$git_repo" .git)
+  git clone $git_repo
+  cd $repo_name
+fi
 
 
 #⬇ Run Your Startup Code Bellow ⬇#
 # Default Code #
 
-#If wanted to use this default code...
-# Download the `HtFast` repo and setup this program!
-echo $git_repo
-echo $repo_name
+# `HtFast` is automatically integrated. (default)
 echo $pass | sudo python3 -S -m venv env
 echo $pass | sudo source -S env/bin/activate
 pip install -r requirements.txt | pv -p -t -e -r -a -b > /dev/null
