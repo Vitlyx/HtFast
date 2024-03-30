@@ -42,7 +42,7 @@ sudo rm -r HtFast
 ## Notice
 
 1. Any of your info will **NOT** be shared with anyone.
-2. Be warned if anything is edited, it is **NOT** our fault if broken, please reinstall it again.
+2. Be warned if anything is edited, it is **NOT** our fault if broken, please delete and reinstall it again.
 
 ## Thanks
 
